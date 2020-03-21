@@ -1,0 +1,29 @@
+{
+  "name": "deploy-ecs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "jest "
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kermit987/simple-node-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kermit987/simple-node-app/issues"
+  },
+  "homepage": "https://github.com/kermit987/simple-node-app#readme"
+}
