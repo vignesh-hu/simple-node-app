@@ -2,6 +2,24 @@ version: 2
 # jobs section of the circle.yml defines a task or set of tasks to be run
 # for CI process. CircleCI allows you to configure multiple jobs for more
 # complex CI processes, but for our purposes, a single job task is all we need
+
+# orbs:
+#   aws-code-deploy: circleci/aws-ecr@4.0.1
+#   workflows:
+#     build_and_push_image:
+#       jobs:
+#         - aws-ecr/build-and-push-image:
+#             account-url: AWS_ECR_ACCOUNT_URL_ENV_VAR_NAME #how to know the url of my ECR account
+#             aws-access-key-id: ACCESS_KEY_ID_ENV_VAR_NAME
+#             aws-secret-access-key: SECRET_ACCESS_KEY_ENV_VAR_NAME
+#             context: myContext
+#             create-repo: true
+#             dockerfile: Dockerfile
+#             path: . #not sure about how to indicate the path
+#             profile-name: myProfileName
+#             region: AWS_REGION_ENV_VAR_NAME
+#             repo: theNameOfMyECR
+#             tag: 'notag'
 jobs:
   # The build section defines the name for the job. So in this case, the name of
   # the job is simply build
@@ -14,10 +32,21 @@ jobs:
     # we want our tests to take place on a MacOS machines as opposed to a Docker image
     docker:
       - image: circleci/node:10.15.3
-    working_directory: ~/repo
+    working_directory: .
     steps:
       # checkout - a CircleCI built in command which is responsible for checking
       # out the project's source code into the Job's working_directory we discussed above
       - checkout
       - run: npm install
       - run: npm test
+  jobs:
+    - aws-code-deploy/deploy:
+        application-name: simple-node-app
+        deployment-group: myDeploymentGroup
+        service-role-arm: myDeploymentGroupRoleARN
+        bundle-bucket: myApplicationS3Bucket
+        bundle-key: myS3BucketKey
+#what is the prupose of orbs:
+#what is the purpose of workflows:
+#what is the purpose of workflow
+#how to know the version to use for the executor
