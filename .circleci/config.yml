@@ -32,7 +32,7 @@ jobs:
     # we want our tests to take place on a MacOS machines as opposed to a Docker image
     docker:
       - image: circleci/node:10.15.3
-    working_directory: .
+    working_directory: ~/repo
     steps:
       # checkout - a CircleCI built in command which is responsible for checking
       # out the project's source code into the Job's working_directory we discussed above
