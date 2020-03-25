@@ -7,27 +7,26 @@ orbs:
   aws-ecr: circleci/aws-ecr@6.7.1
   aws-ecs: circleci/aws-ecs@1.1.0
 
+jobs:
+  # The build section defines the name for the job. So in this case, the name of
+  # the job is simply build
+  build:
+    # The docker section defines an executor for the build process. And executor
+    # is a place where build steps will occur. By specifying docker, we are telling
+    # Circle that we want our build steps to take place inside of a Docker container.
+    # For comparison sake, if we were building an iOS application instead of a node.js
+    # application, we would replace 'docker' with macos. This would tell Circle that
+    # we want our tests to take place on a MacOS machines as opposed to a Docker image
+    docker:
+      - image: circleci/node:10.15.3
+    working_directory: ~/project
+    steps:
+      # checkout - a CircleCI built in command whic h is responsible for checking
+      # out the project's source code into the Job's working_directory we discussed above
+      - checkout
+      - run: npm install
+      - run: npm test
 workflows:
-  unit-test:
-    jobs:
-      # The build section defines the name for the job. So in this case, the name of
-      # the job is simply build
-      build:
-        # The docker section defines an executor for the build process. And executor
-        # is a place where build steps will occur. By specifying docker, we are telling
-        # Circle that we want our build steps to take place inside of a Docker container.
-        # For comparison sake, if we were building an iOS application instead of a node.js
-        # application, we would replace 'docker' with macos. This would tell Circle that
-        # we want our tests to take place on a MacOS machines as opposed to a Docker image
-        docker:
-          - image: circleci/node:10.15.3
-        working_directory: ~/project
-        steps:
-          # checkout - a CircleCI built in command which is responsible for checking
-          # out the project's source code into the Job's working_directory we discussed above
-          - checkout
-          - run: npm install
-          - run: npm test
   build-and-deploy:
     jobs:
       - aws-ecr/build_and_push_image:
@@ -38,6 +37,8 @@ workflows:
             - aws-ecr/build_and_push_image
           family: 'basic-nodejs-app-service'
           cluster: 'basic-nodejs-app-cluster'
+#how to know if it's syntaxically correct
+#how to know if
 #what is the prupose of orbs:
 #what is the purpose of workflows:
 #what is the purpose of workflow
