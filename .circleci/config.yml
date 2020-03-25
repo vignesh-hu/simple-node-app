@@ -27,6 +27,7 @@ jobs:
       - run: npm install
       - run: npm test
 workflows:
+  version: 2
   build-and-deploy:
     jobs:
       - aws-ecr/build_and_push_image:
