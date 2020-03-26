@@ -16,7 +16,7 @@ workflows:
           # aws-secret-access-key: '${AWS_SECRET_ACCESS_KEY}'
           # dockerfile: 'Dockerfile'
           # path: ~/project
-          repo: ${AWS_RESOURCE_NAME_PREFIX} #checker ce qui est obligatoire
+          repo: 'basic-nodejs-app-ecr' #checker ce qui est obligatoire
           region: ${AWS_REGION}
         # tag: '${CIRCLE_SHA1}'
       # - aws-ecs/deploy-service-update:
