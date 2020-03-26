@@ -3,7 +3,7 @@
 # complex CI processes, but for our purposes, a single job task is all we need
 
 orbs:
-  aws-ecr: circleci/aws-ecr@0.0.2
+  aws-ecr: circleci/aws-ecr@6.7.1
   aws-ecs: circleci/aws-ecs@1.1.0
 
 version: 2.1
