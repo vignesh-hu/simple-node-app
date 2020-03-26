@@ -6,8 +6,9 @@ version: 2
 orbs:
   aws-ecr: circleci/aws-ecr@6.7.1
   aws-ecs: circleci/aws-ecs@1.1.0
+
 workflows:
-  version: 2
+  version: 2.1
   build-and-deploy:
     jobs:
       - aws-ecr/build_and_push_image:
@@ -49,3 +50,4 @@ jobs:
 #what is the purpose of workflows:
 #what is the purpose of workflow
 #how to know the version to use for the executor
+
