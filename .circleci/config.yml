@@ -11,14 +11,14 @@ workflows:
   build-and-deploy:
     jobs:
       - aws-ecr/build_and_push_image:
-        account-url: '${AWS_ECR_ACCOUNT_URL}'
+        account-url: '447414606764.dkr.ecr.eu-west-3.amazonaws.com'
         # aws-access-key-id: '${AWS_ACCESS_KEY_ID}'
         # aws-secret-access-key: '${AWS_SECRET_ACCESS_KEY}'
         # dockerfile: 'Dockerfile'
         # path: ~/project
-        repo: '${AWS_RESOURCE_NAME_PREFIX}' #checker ce qui est obligatoire
-        region: '${AWS_REGION}'
-        tag: '${CIRCLE_SHA1}'
+        repo: '447414606764.dkr.ecr.eu-west-3.amazonaws.com/basic-nodejs-app-ecr' #checker ce qui est obligatoire
+        region: 'eu-west-3'
+        # tag: '${CIRCLE_SHA1}'
       # - aws-ecs/deploy-service-update:
       #     requires:
       #       - aws-ecr/build_and_push_image
