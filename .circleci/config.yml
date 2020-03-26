@@ -11,13 +11,13 @@ workflows:
   build-and-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
-          account-url: $AWS_ECR_ACCOUNT_URL_ENV_VAR_NAME
+          account-url: AWS_ECR_ACCOUNT_URL_ENV_VAR_NAME
           # aws-access-key-id: '${AWS_ACCESS_KEY_ID}'
           # aws-secret-access-key: '${AWS_SECRET_ACCESS_KEY}'
           # dockerfile: 'Dockerfile'
           # path: ~/project
           repo: 'basic-nodejs-app-ecr' #checker ce qui est obligatoire
-          region: $AWS_REGION_ENV_VAR_NAME
+          region: AWS_REGION_ENV_VAR_NAME
         # tag: '${CIRCLE_SHA1}'
       # - aws-ecs/deploy-service-update:
       #     requires:
