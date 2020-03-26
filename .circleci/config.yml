@@ -1,4 +1,3 @@
-version: 2
 # jobs section of the circle.yml defines a task or set of tasks to be run
 # for CI process. CircleCI allows you to configure multiple jobs for more
 # complex CI processes, but for our purposes, a single job task is all we need
