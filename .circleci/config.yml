@@ -23,6 +23,7 @@ workflows:
             - aws-ecr/build-and-push-image
           family: 'basic-nodejs-app-task-definition'
           cluster-name: 'basic-nodejs-app-cluster'
+          service-name: 'basic-nodejs-app-service'
 jobs:
   # The build section defines the name for the job. So in this case, the name of
   # the job is simply build
