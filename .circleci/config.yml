@@ -17,11 +17,11 @@ workflows:
           # dockerfile: 'Dockerfile'
           # path: ~/project
           repo: 'basic-nodejs-app-ecr' #checker ce qui est obligatoire
-          region: AWS_REGION_ENV_VAR_NAME
+          region: AWS_REGION
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: 'basic-nodejs-app-service'
+          family: 'basic-nodejs-app-task-definition'
           cluster-name: 'basic-nodejs-app-cluster'
 jobs:
   # The build section defines the name for the job. So in this case, the name of
