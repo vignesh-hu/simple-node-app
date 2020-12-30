@@ -11,19 +11,19 @@ workflows:
   build-and-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL_ENV_VAR_NAME
-          aws-access-key-id: '${AWS_ACCESS_KEY_ID}'
-          aws-secret-access-key: '${AWS_SECRET_ACCESS_KEY}'
-          dockerfile: 'Dockerfile'
+          account-url: ${AWS_ECR_ACCOUNT_URL_ENV_VAR_NAME}
+          aws-access-key-id: ${AWS_ACCESS_KEY_ID}
+          aws-secret-access-key: ${AWS_SECRET_ACCESS_KEY}
+          dockerfile: Dockerfile
           path: ~/project
-          repo: 'basic-nodejs-app-ecr' #checker ce qui est obligatoire
+          repo: basic-nodejs-app-ecr #checker ce qui est obligatoire
           region: AWS_REGION
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: 'basic-nodejs-app-task-definition'
-          cluster-name: 'basic-nodejs-app-cluster'
-          service-name: 'basic-nodejs-app-service'
+          family: basic-nodejs-app-task-definition
+          cluster-name:  basic-nodejs-app-cluster
+          service-name:  basic-nodejs-app-service
 jobs:
   # The build section defines the name for the job. So in this case, the name of
   # the job is simply build
