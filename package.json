@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kermit987/simple-node-app.git"
+    "url": "git+https://github.com/vignesh-hu/simple-node-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kermit987/simple-node-app/issues"
+    "url": "https://github.com/vignesh-hu/simple-node-app/issues"
   },
-  "homepage": "https://github.com/kermit987/simple-node-app#readme"
+  "homepage": "https://github.com/vignesh-hu/simple-node-app#readme"
 }
